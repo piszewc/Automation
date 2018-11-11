@@ -11,7 +11,7 @@ import pandas as pd
 
 
 def only_main_page(url):
-    for page in range (0,1000):
+    for page in range (1500,2000):
         page+=1
         current_url = url+str(page)  
         print("Currenlty Working on page #: "+str(page))
