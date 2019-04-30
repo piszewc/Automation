@@ -72,3 +72,4 @@ while current_page <= max_page:
         print("error at", current_page)
         current_page = current_page+1
         
+home_database.to_csv("otodom_krk.csv")
