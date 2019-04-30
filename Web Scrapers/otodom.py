@@ -53,18 +53,22 @@ home_database = pd.DataFrame(columns=['item_type','id','url','title','location',
 current_page = 1     
 
 url = "https://www.otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bdist%5D=0&search%5Bsubregion_id%5D=410&search%5Bcity_id%5D=38&nrAdsPerPage=72&page="+str(current_page)
-max_page = load_max_page(url)
+max_page = int(load_max_page(url))
 
 print("Max Page is:", max_page)
 
+
 while current_page <= max_page:
-    print("Current Page:",current_page)
-    current_link = create_link(url,current_page)
-    
-    page_items = read_page(current_link)
-    load_home_database = pd.DataFrame(page_items,columns=['item_type','id','url','title','location','price','rooms','m2'])
-    home_database = home_database.append(load_home_database, ignore_index = True)
-    
-    current_page = current_page+1
-    
-    
+    try:
+        print("Current Page:",current_page)
+        current_link = create_link(url,current_page)
+        
+        page_items = read_page(current_link)
+        load_home_database = pd.DataFrame(page_items,columns=['item_type','id','url','title','location','price','rooms','m2'])
+        home_database = home_database.append(load_home_database, ignore_index = True)
+        
+        current_page = current_page+1
+    except:
+        print("error at", current_page)
+        current_page = current_page+1
+        
