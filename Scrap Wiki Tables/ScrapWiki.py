@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Following Scrip will download data from Wiki Pages
+Created by
+https://github.com/piszewc/
+
+Scrap Wiki will scrap all Wiki tables from selected Page.
+All tables are going to be saved to CSV file in current location.
+
 """
 
 import requests
 import pandas as pd
+from bs4 import BeautifulSoup
 
 page = requests.get("https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom_by_enrolment").text
 
-from bs4 import BeautifulSoup
 
 soup = BeautifulSoup(page, "lxml")
 data = []
@@ -28,3 +33,5 @@ for row in rows:
 data[0]=header
 
 dftable = pd.DataFrame(data[1:], columns=data[0])
+
+
