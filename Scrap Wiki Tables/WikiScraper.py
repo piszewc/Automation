@@ -7,6 +7,7 @@ Created on Sat Nov 30 21:23:56 2019
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+import re
 
 class website(object):
     def __init__(self,url):
@@ -26,15 +27,18 @@ class scrapper(website):
             table_number = table_number+1      
         
     def create_table_df(url):
-        current_tables = pd.read_html(url)
-        scrapper.save_csv(current_tables)
+        read_wiki_table = pd.read_html(requests.get(url).text, attrs={"class":re.compile("wikitable\d+")})
+        
+        master_table = []
+        for table in read_wiki_table:
+            if list(table.columns) != [0,1]:
+                master_table.append(table)
+                
+        scrapper.save_csv(master_table)
         
     def get_header_name(url):
         pass
     
- 
-    
-    
-    
-    
-scrapper.create_table_df("https://en.wikipedia.org/wiki/List_of_best-selling_singles")
+     
+url = "https://en.wikipedia.org/wiki/List_of_best-selling_video_games"
+scrapper.create_table_df("https://en.wikipedia.org/wiki/List_of_best-selling_video_games")
