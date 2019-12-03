@@ -40,5 +40,4 @@ class scrapper(website):
         pass
     
      
-url = "https://en.wikipedia.org/wiki/List_of_best-selling_video_games"
 scrapper.create_table_df("https://en.wikipedia.org/wiki/List_of_best-selling_video_games")
