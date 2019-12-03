@@ -27,7 +27,7 @@ class scrapper(website):
             table_number = table_number+1      
         
     def create_table_df(url):
-        read_wiki_table = pd.read_html(requests.get(url).text, attrs={"class":re.compile("wikitable\d+")})
+        read_wiki_table = pd.read_html(url)
         
         master_table = []
         for table in read_wiki_table:
