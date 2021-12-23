@@ -1,0 +1,14 @@
+﻿Name;Value;Location
+PageTitle;"h1[data-cy=""adPageAdTitle""]";Main
+Cena;"strong[data-cy=""adPageHeaderPrice""]";Main
+Location;"a[aria-label=""Adres""]";Main
+CenaZaMetr;"div[aria-label=""Cena za metr kwadratowy""]";Main
+Powierzchnia;"div[aria-label=""Powierzchnia""]";Details
+Liczba_pokoi;"div[aria-label=""Liczba pokoi""]";Details
+Pietro;"div[aria-label=""Piętro""]";Details
+Czynsz;"div[aria-label=""Czynsz""]";Details
+Forma_wlasnosci;"div[aria-label=""Forma własności""]";Details
+Ogrzewanie;"div[aria-label=""Ogrzewanie""]";Details
+Description;"div[data-cy=""adPageAdDescription""]";Description
+Rynek;"div[aria-label=""Rynek""]";Additonal
+Rok_budowy;"div[aria-label=""Rok budowy""]";Additonal
